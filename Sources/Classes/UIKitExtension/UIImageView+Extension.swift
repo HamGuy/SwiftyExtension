@@ -1,6 +1,6 @@
 //
 //  UIImageView+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2020/11/16.
 //

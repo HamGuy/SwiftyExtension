@@ -1,13 +1,13 @@
 //
 //  StringTest.swift
-//  JKSwiftExtension_Tests
+//  SwiftyExtension_Tests
 //
 //  Created by IronMan on 2020/9/24.
 //  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
 import XCTest
-import JKSwiftExtension
+import SwiftyExtension
 class StringTest: XCTestCase {
 
     override func setUpWithError() throws {

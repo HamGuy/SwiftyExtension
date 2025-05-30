@@ -1,6 +1,6 @@
 //
 //  UICollectionView+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2020/12/16.
 //

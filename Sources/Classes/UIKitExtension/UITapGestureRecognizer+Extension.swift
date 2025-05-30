@@ -1,6 +1,6 @@
 //
 //  UITapGestureRecognizer+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by 王冲 on 2022/8/24.
 //

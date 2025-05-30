@@ -1,6 +1,6 @@
 //
 //  Optional+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by 小冲冲 on 2023/12/25.
 //

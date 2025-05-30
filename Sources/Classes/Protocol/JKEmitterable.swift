@@ -7,7 +7,12 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
+#if canImport(AppKit)
+import AppKit
+#endif
 
 // MARK: - 粒子发射器
 /**
@@ -86,7 +91,11 @@ public class JKEmitterStyle: NSObject {
     /// 开启三维效果
     public var preservesDepth: Bool = true
     /// 设置发射器位置
+    #if canImport(UIKit)
     public var emitterPosition: CGPoint = CGPoint(x: UIScreen.main.bounds.width / 2.0, y: UIScreen.main.bounds.height - 30)
+    #elseif canImport(AppKit)
+    public var emitterPosition: CGPoint = CGPoint(x: NSScreen.main?.frame.width ?? 0 / 2.0, y: NSScreen.main?.frame.height ?? 0 - 30)
+    #endif
     /// 发射器的形状，默认 球型
     public var emitterShape: CAEmitterLayerEmitterShape = CAEmitterLayerEmitterShape.sphere
     
@@ -102,7 +111,11 @@ public class JKEmitterStyle: NSObject {
     /// 设置例子每秒弹出的个数
     public var cellEmitterBirthRate: Float = 10
     /// 粒子的颜色
+    #if canImport(UIKit)
     public var cellColor: UIColor = .white
+    #elseif canImport(AppKit)
+    public var cellColor: NSColor = .white
+    #endif
     /// 粒子旋转速度
     public var cellSpin: CGFloat = CGFloat(Double.pi/2)
     /// 粒子旋转速度范围
@@ -121,6 +134,7 @@ public class JKEmitterStyle: NSObject {
 }
 
 // 只有 控制器才可以遵守协议 extension JKEmitterable where Self : UIViewController
+#if canImport(UIKit)
 public extension JKEmitterable where Self : UIViewController {
     
     // MARK: 启动 粒子发射器
@@ -234,3 +248,59 @@ public extension JKEmitterable where Self : UIViewController {
         return cells
     }
 }
+#endif
+
+#if canImport(AppKit)
+public extension JKEmitterable where Self : NSViewController {
+    // MARK: 启动 粒子发射器
+    /// 启动 粒子发射器
+    /// - Parameters:
+    ///   - emitterImageNames: 粒子单元图片名
+    ///   - style: 发射器和粒子的样式
+    @discardableResult
+    func startEmitter(emitterImageNames: [String], style: JKEmitterStyle = JKEmitterStyle()) -> CAEmitterLayer {
+        let emitter = CAEmitterLayer()
+        emitter.backgroundColor = NSColor.brown.cgColor
+        emitter.emitterPosition = style.emitterPosition
+        emitter.preservesDepth = style.preservesDepth
+        let cells = createEmitterCell(emitterImageNames: emitterImageNames, style: style)
+        emitter.emitterCells = cells
+        // macOS 需确保 view.wantsLayer = true
+        view.wantsLayer = true
+        view.layer?.addSublayer(emitter)
+        // 省略 fireOnce 逻辑（如需可用 Timer 实现）
+        return emitter
+    }
+    func stopEmitter() {
+        let layers = view.layer?.sublayers?.filter { $0.isKind(of: CAEmitterLayer.self) }
+        guard let weaklayers = layers else { return }
+        for layer in weaklayers {
+            layer.removeFromSuperlayer()
+        }
+    }
+    private func createEmitterCell(emitterImageNames: [String], style: JKEmitterStyle) -> [CAEmitterCell] {
+        var cells: [CAEmitterCell] = []
+        for emitterImageName in emitterImageNames {
+            let cell = CAEmitterCell()
+            cell.velocity = style.cellVelocity
+            cell.velocityRange = style.cellVelocityRange
+            cell.scale = style.cellScale
+            cell.scaleRange = style.cellScaleRange
+            cell.emissionLongitude = style.cellEmissionLongitude
+            cell.emissionRange = style.cellEmissionRange
+            cell.spin = style.cellSpin
+            cell.spinRange = style.cellSpinRange
+            cell.lifetime = style.cellEmitterLifetime
+            cell.lifetimeRange = style.cellLifetimeRange
+            cell.birthRate = style.cellEmitterBirthRate
+            // macOS: NSImage -> CGImage
+            if let nsImage = NSImage(named: emitterImageName) {
+                cell.contents = nsImage.cgImage(forProposedRect: nil, context: nil, hints: nil)
+            }
+            cell.color = style.cellColor.cgColor // 需保证 cellColor 为 NSColor
+            cells.append(cell)
+        }
+        return cells
+    }
+}
+#endif

@@ -1,6 +1,6 @@
 //
 //  UISwitch+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2020/10/10.
 //

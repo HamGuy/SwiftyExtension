@@ -1,6 +1,6 @@
 //
 //  CATextLayer+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2020/9/24.
 //

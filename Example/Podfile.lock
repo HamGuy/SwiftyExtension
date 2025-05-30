@@ -1,23 +1,23 @@
 PODS:
-  - JKSwiftExtension (2.7.3)
   - SnapKit (5.7.1)
+  - SwiftyExtension (2.8.3)
 
 DEPENDENCIES:
-  - JKSwiftExtension (from `../`)
   - SnapKit
+  - SwiftyExtension (from `../`)
 
 SPEC REPOS:
   trunk:
     - SnapKit
 
 EXTERNAL SOURCES:
-  JKSwiftExtension:
+  SwiftyExtension:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSwiftExtension: a9c05eb53807993fc4cc257ec79358c042a02a8c
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftyExtension: 4804240bea70e03fc7a68c5120a25966cad6dd0e
 
-PODFILE CHECKSUM: cc584c186fef3380df7edbb3c8fd21a180fb5eae
+PODFILE CHECKSUM: df97670ee8074709ffd63e621d4350033e0ad66d
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.15.2

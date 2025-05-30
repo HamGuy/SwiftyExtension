@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyExtension (2.8.3)
+
+DEPENDENCIES:
+  - SwiftyExtension (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftyExtension:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftyExtension: adfd0205da3bf305791f3c364b1009658ddffa1e
+
+PODFILE CHECKSUM: e0a7a724bb9c2e367eaa0585daa81ef74fd5fc31
+
+COCOAPODS: 1.15.2

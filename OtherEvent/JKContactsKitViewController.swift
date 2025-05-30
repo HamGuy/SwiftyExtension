@@ -1,6 +1,6 @@
 //
 //  JKContactsKitViewController.swift
-//  JKSwiftExtension_Example
+//  SwiftyExtension_Example
 //
 //  Created by IronMan on 2021/3/23.
 //  Copyright © 2021 CocoaPods. All rights reserved.

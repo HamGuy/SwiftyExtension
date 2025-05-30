@@ -6,7 +6,7 @@
 //  Copyright © 2019 王冲. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension String: JKPOPCompatible {}
 extension NSString: JKPOPCompatible {}

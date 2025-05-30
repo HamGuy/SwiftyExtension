@@ -1,5 +1,5 @@
 import XCTest
-import JKSwiftExtension
+import SwiftyExtension
 
 class Tests: XCTestCase {
     

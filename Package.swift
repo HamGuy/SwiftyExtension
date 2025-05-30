@@ -3,12 +3,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "JKSwiftExtension",
-    platforms: [.iOS(.v13)],
+    name: "SwiftyExtension",
+    platforms: [.iOS(.v13), .macOS(.v10_13)],
     products: [
         .library(
-            name: "JKSwiftExtension",
-            targets: ["JKSwiftExtension"]),
+            name: "SwiftyExtension",
+            targets: ["SwiftyExtension"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -16,12 +16,27 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "JKSwiftExtension",
+            name: "SwiftyExtension",
             path: "Sources",
-            resources: [.process("Assets/ironman.png")]
+            exclude: [],
+            sources: [
+                "Classes/FoundationExtension",
+                "Classes/Protocol",
+                "Classes/SmallTools/Common",
+                "Classes/SmallTools/iOS",
+                "Classes/UIKitExtension",
+                "Classes/SmallTools/macOS",
+                "Classes/AppkitExtension"
+            ],
+            resources: [.process("Assets/ironman.png")],
+            cSettings: [],
+            swiftSettings: [],
+            linkerSettings: []
         ),
         .testTarget(
-            name: "JKSwiftExtensionTests",
-            dependencies: ["JKSwiftExtension"]),
+            name: "SwiftyExtensionTests",
+            dependencies: ["SwiftyExtension"],
+            path: "Tests/SwiftyExtensionTests"
+        ),
     ]
 )

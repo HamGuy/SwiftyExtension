@@ -1,12 +1,13 @@
 //
 //  JKPOP.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2020/9/24.
 //
 
-import UIKit
+
 import Foundation
+
 public struct JKPOP<Base> {
     let base: Base
     init(_ base: Base) {

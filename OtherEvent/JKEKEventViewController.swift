@@ -1,6 +1,6 @@
 //
 //  JKEKEventViewController.swift
-//  JKSwiftExtension_Example
+//  SwiftyExtension_Example
 //
 //  Created by IronMan on 2021/3/15.
 //  Copyright © 2021 CocoaPods. All rights reserved.

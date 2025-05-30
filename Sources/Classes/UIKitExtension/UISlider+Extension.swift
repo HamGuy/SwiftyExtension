@@ -1,6 +1,6 @@
 //
 //  UISlider+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2021/1/5.
 //

@@ -1,6 +1,6 @@
 //
 //  JKEKEvent.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2021/3/15.
 //

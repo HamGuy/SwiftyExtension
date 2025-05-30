@@ -1,6 +1,6 @@
 //
 //  UINavigationController+Extension.swift
-//  JKSwiftExtension
+//  SwiftyExtension
 //
 //  Created by IronMan on 2020/10/9.
 //
